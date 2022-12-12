@@ -9,7 +9,7 @@ const SignInComponent = ({ providers }: Props) => {
   return (
     <div>
       {Object.values(providers!).map((provider) => (
-        <div key={provider.name}>
+        <div className='flex flex-col items-center m-auto text-center mt-5' key={provider.name}>
           <button
             className='text-xl py-1 px-2 bg-blue-500 rounded-full text-white'
             onClick={() => {

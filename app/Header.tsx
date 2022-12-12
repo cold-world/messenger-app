@@ -13,10 +13,13 @@ const Header = ({ session }: any) => {
   if (session)
     return (
       <header>
-        <div>
-          <p>Logged as: {session.user?.name}</p>
+        <div className='flex flex-col space-x-2 space-y-5 mt-10 ml-10'>
+          <div>
+            <Image className='rounded-full' width={50} height={50} alt='userpic' src={session.user?.image} />
+            <p className='space-y-5'>Logged as: {session.user?.name}</p>
+          </div>
+          <LogoutButton />
         </div>
-        <LogoutButton />
       </header>
     );
   return (

@@ -1,0 +1,29 @@
+'use client';
+import { getProviders, signIn } from 'next-auth/react';
+
+type Props = {
+  providers: Awaited<ReturnType<typeof getProviders>>;
+};
+
+const SignInComponent = ({ providers }: Props) => {
+  return (
+    <div>
+      {Object.values(providers!).map((provider) => (
+        <div key={provider.name}>
+          <button
+            className='text-xl py-1 px-2 bg-blue-500 rounded-full text-white'
+            onClick={() => {
+              signIn(provider.id, {
+                callbackUrl: process.env.VERCEL_URL || 'http://localhost:3000',
+              });
+            }}
+          >
+            Sign in with {provider.name}
+          </button>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default SignInComponent;

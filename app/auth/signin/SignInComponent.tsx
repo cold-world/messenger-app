@@ -14,7 +14,7 @@ const SignInComponent = ({ providers }: Props) => {
             className='text-xl py-1 px-2 bg-blue-500 rounded-full text-white'
             onClick={() => {
               signIn(provider.id, {
-                callbackUrl: process.env.VERCEL_URL || 'http://localhost:3000',
+                callbackUrl: process.env.VERCEL_URL,
               });
             }}
           >
